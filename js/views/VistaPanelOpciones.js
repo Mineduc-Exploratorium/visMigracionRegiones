@@ -19,7 +19,6 @@ define([
 		* @param {string} options.areas Arreglo con el listado de áreas a seleccionar (Ej. ["Salud", "Educación", ...])
 		*/
 		initialize: function() {
-			console.log("test 111");
 			this.render()
 		},
 
@@ -41,7 +40,25 @@ define([
 		*/
 		render: function() {
 			
-			this.areas = ["Seleccione una región","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
+			this.areas = [
+			         {codigo: "0",  nombre: "Seleccione una región" },
+			         {codigo: "15", nombre: "Arica y Parinacota" },
+			         {codigo: "1",  nombre: "Tarapacá" },
+			         {codigo: "2",  nombre: "Antofagasta" },
+			         {codigo: "3",  nombre: "Atacama" },
+			         {codigo: "4",  nombre: "Coquimbo" },
+			         {codigo: "5",  nombre: "Valparaíso" },
+			         {codigo: "13", nombre: "Metropolitana de Santiago" },
+			         {codigo: "6",  nombre: "Libertador General Bernardo O'Higgins" },
+			         {codigo: "7",  nombre: "Maule" },
+			         {codigo: "8",  nombre: "Biobío" },
+			         {codigo: "9",  nombre: "Araucanía" },
+			         {codigo: "14", nombre: "Los Ríos" },
+			         {codigo: "10", nombre: "Los Lagos" },
+			         {codigo: "11", nombre: "Aysén del General Carlos Ibáñez del Campo" },
+			         {codigo: "12", nombre: "Magallanes y de la Antártica Chilena" },
+				];
+
 			var selectorArea = d3.select(this.el)
 			selectorArea.append("select")
 				.attr("id", "id_inputArea")
@@ -49,8 +66,8 @@ define([
 				.data(this.areas)
 				.enter()
 					.append("option")
-					.attr("value", function(d) {return d})
-					.text(function(d) {return  d})
+					.attr("value", function(d) {return d.codigo})
+					.text(function(d) {return  d.nombre})
 
 
 		}
